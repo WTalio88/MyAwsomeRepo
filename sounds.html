@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+
   </head>
 
   <body class="text-center">
@@ -40,11 +41,34 @@
         <p class="lead">
            <!-- put a visual where the bullets are and make the list of things links to audio files? -->
             <!-- please clarify difference between anchors and links-->
-           <ul>  
-      <li>Ludovic</li> 
-      <li>Elixer IV</li>
-    </ul>
+          
+            <audio id="audio" controls>
+
+              <source id="audioSource">
+            </audio>
         </p>
+
+        <div id="playlist">
+            <div class="song">
+              <a href="#" data-source="audio_mp3/Overture.mp3">
+              <div class="thumbnail"><img class="thumbnail_img" src="visuals/charlieparkerbluedot.png"></div>
+              <div class="title">I love you HEAPS</div>
+              </a>
+            </div>
+
+            <div class="song">
+              <div class="thumbnail"> <img class="thumbnail_img" src="visuals/milesdavisreddot.png"></div>
+              <div class="title">Overture</div>
+            </div>
+            
+            <div class="song">
+              <div class="thumbnail"> <img class="thumbnail_img" src="visuals/narireceivesordersfromcommandship.png"></div>
+              <div class="title">The Swordsman</div>
+            </div>
+        
+        </div>
+
+
       </main>
 
       <footer class="mastfoot mt-auto">
@@ -62,5 +86,20 @@
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+      <script>
+      playlist.onclick = function(e) {
+  e.preventDefault();
+
+  var elm = e.target;
+  var audio = document.getElementById('audio');
+
+  var source = document.getElementById('audioSource');
+  source.src = elm.getAttribute('data-value');
+
+  audio.load(); //call this to just preload the audio without playing
+  audio.play(); //call this to play the song right away
+};
+    </script>
   </body>
+
 </html>
